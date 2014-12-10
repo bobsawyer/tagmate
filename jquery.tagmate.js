@@ -384,15 +384,7 @@ var Tagmate = (function() {
                         setTimeout(function() { menu.hide(); }, 300);
                     })
                     .bind('click.tagmate', function(e) {
-                        //tag_check();
-						var value = menu.children("." + defaults.menu_option_active_class).text();
-						var tag = parse_tag(textarea);
-						if (tag && value) {
-							replace_tag(textarea, tag, value);
-							menu.hide();
-							ignore_keyup = true;
-							return false;
-						}
+                        tag_check();
                     })
                     .bind('keydown.tagmate', function(e) {
                         if (menu.is(":visible")) {
