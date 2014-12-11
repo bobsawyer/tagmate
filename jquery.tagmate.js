@@ -319,7 +319,7 @@ var Tagmate = (function() {
                 textarea.after(menu);
 
                 var pos = textarea.offset();
-                menu.css("position", "absolute");
+                //menu.css("position", "absolute");
                 menu.hide();
 
                 // Activate menu and fire callbacks if cursor enters a tag
@@ -349,7 +349,7 @@ var Tagmate = (function() {
                                 if (options && options.length > 0) {
                                     // Update and show the menu
                                     update_menu(menu, options);
-                                    menu.css("top", (textarea.outerHeight() - 1) + "px");
+                                    //menu.css("top", (textarea.outerHeight() - 1) + "px");
                                     menu.show();
 
                                     // Store for parse_tags()
@@ -384,7 +384,11 @@ var Tagmate = (function() {
                         setTimeout(function() { menu.hide(); }, 300);
                     })
                     .bind('click.tagmate', function(e) {
-                        tag_check();
+                        //tag_check();
+                        var value = $(this).text();
+	                var tag = parse_tag(textarea);
+			replace_tag(textarea, tag, value);
+	                textarea.keyup();
                     })
                     .bind('keydown.tagmate', function(e) {
                         if (menu.is(":visible")) {
